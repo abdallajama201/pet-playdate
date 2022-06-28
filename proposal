@@ -32,7 +32,7 @@ Pet
 Owner
 	Name Email
 PlayDate
-	Date, Attendees, Host = Owner_id, location
+	Date, Attendees = Owner_id, Host = Owner_id, pets= pet_id,location
 
 Packages Used
 Uploader

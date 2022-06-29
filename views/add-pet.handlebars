@@ -1,33 +1,52 @@
-<div class="card w-50 mx-auto m-5 p-2 text-center">
-    ADD IMAGE DROP BOX
+<div class="card w-50 mx-auto m-5 p-2 text-center" style="background-color: #F2D7D9;">
+    <h2>Add Pet</h2>
     <div class="card-body">
-        <!-- Conditional Logic More Than One Pet -->
-        <h5 class="UserName">{{User.Name}}</h5>
-        <input type="hidden" id="UserName" name="UserName" value="{{User.Name}}">
         <form class="form new-blog-form p-2">
-            <div class="form-group p-2">
-                <label for="PetName">Pet Name:</label>
-                <input class="form-input" type="text" id="PetName" name="PetName" />
-            </div>
-            <div class="form-group p-2">
-                <label for="PetSpecies">Species</label>
-                <select name="PetSpecies" id="PetSpecies" style="width: 150px;">
-                    <option value="Cat">Cat</option>
-                    <option value="Dog">Dog</option>
-                </select>
-            </div>
-            <div class="form-group p-2">
-                <label for="PetBreed">Breed:</label>
-                <input class="form-input" type="text" id="PetBreed" name="PetBreed" />
-            </div>
-            <div class="form-group p-2">
-                <label for="PetAge">Age:</label>
-                <input class="form-input" type="text" id="PetAge" name="PetAge" />
-            </div>
-            <div class="form-group p-2">
-                <button type="submit" class="btn btn-primary">Create Playdate</button>
-            </div>
-        </form>
+            <table border="0" class="mx-auto p-2">
+                <tr>
+                    <td colspan="2" align="center">
+                        {{!-- Uploader Form --}}
 
+                        <form action="/" method="POST" encType="multipart/form-data">
+                            <div class="p-3 m-2 rounded-3" style="background-color: #D3CEDF;">
+                                {{#if this.pet_image}}
+                                <img class="rounded-3" src="{{this.pet_image}}" loading="lazy" alt="Pet Image">
+                                {{else}}
+                                <img class="rounded-3" src="./assets/images/default.png" loading="lazy" alt="Pet Image">
+                                {{/if}}
+                                <input type="file" class="btn btn-primary" name="sampleFile" accept="image/*" /><br>
+                                <input type="submit" class="btn btn-primary" value="Add Image">
+                            </div>
+                        </form>
+                        {{!-- Uploader Form End --}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+
+                        <!-- Assign to owner -->
+                        <input type="hidden" id="UserName" name="UserName" value="{{User.Name}}">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="PetName">Pet Name</label></td>
+                    <td><input class="form-input" type="text" id="PetName" name="PetName" /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="PetBreed">Breed:</label></td>
+                    <td><input class="form-input" type="text" id="PetBreed" name="PetBreed" /></td>
+                </tr>
+                <tr>
+                    <td><label for="PetAge">Age:</label></td>
+                    <td><input class="form-input" type="text" id="PetAge" name="PetAge" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit" class="btn btn-primary">Add Pet to
+                            Profile</button></td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>

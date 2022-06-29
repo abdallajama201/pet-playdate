@@ -1,5 +1,5 @@
 const router = require('express').Router();
-cosnt { PlayDate, Owner, Pet } = require("../../models");
+const { PlayDate, Owner, Pet } = require("../../models");
 const withAuth = require('../utils/auth');
 
 // Homepage route

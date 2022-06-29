@@ -28,7 +28,7 @@ Handlebars
 Be responsive
 MySQL
 Pet
-	Breed, Age, Owner_id, species
+	Breed, Age, Owner_id, image
 Owner
 	Name Email
 PlayDate

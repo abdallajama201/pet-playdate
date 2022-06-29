@@ -1,0 +1,33 @@
+<div class="card w-50 mx-auto m-5 p-2 text-center">
+    ADD IMAGE DROP BOX
+    <div class="card-body">
+        <!-- Conditional Logic More Than One Pet -->
+        <h5 class="UserName">{{User.Name}}</h5>
+        <input type="hidden" id="UserName" name="UserName" value="{{User.Name}}">
+        <form class="form new-blog-form p-2">
+            <div class="form-group p-2">
+                <label for="PetName">Pet Name:</label>
+                <input class="form-input" type="text" id="PetName" name="PetName" />
+            </div>
+            <div class="form-group p-2">
+                <label for="PetSpecies">Species</label>
+                <select name="PetSpecies" id="PetSpecies" style="width: 150px;">
+                    <option value="Cat">Cat</option>
+                    <option value="Dog">Dog</option>
+                </select>
+            </div>
+            <div class="form-group p-2">
+                <label for="PetBreed">Breed:</label>
+                <input class="form-input" type="text" id="PetBreed" name="PetBreed" />
+            </div>
+            <div class="form-group p-2">
+                <label for="PetAge">Age:</label>
+                <input class="form-input" type="text" id="PetAge" name="PetAge" />
+            </div>
+            <div class="form-group p-2">
+                <button type="submit" class="btn btn-primary">Create Playdate</button>
+            </div>
+        </form>
+
+    </div>
+</div>

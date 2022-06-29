@@ -17,15 +17,15 @@
 
 
 ## Description
-- 
+- Is your pet lonely? Do you wish that they would stop watching tv all day? Setup a pet playdate today!
 
 
 ## Installation
 Follow these steps to install this project on your local machine.
 - Open Bash editor
-- mkdir 
-- cd 
-- git clone 
+- mkdir pet-playdate
+- cd pet-playdate
+- git clone https://github.com/abdallajama201/pet-playdate.git
 - npm i
 
 
@@ -39,9 +39,7 @@ Follow these steps to install this project on your local machine.
 
 
 ## Images
-- -![ECommerceBackEnd](./assets/images/.gif)
-- -![VIEW DEMO VIDEO](./assets/images/.webm)
-- -![VIEW on GDrive](https://drive.google.com/)
+- -![ECommerceBackEnd](./assets/images/pet-playdate.png)
 
 ## Tests
 - node run test

@@ -11,28 +11,31 @@ Pet.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    pet_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    breed: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    image: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+      allowNull: true,
     },
-    password: {
-      type: DataTypes.STRING,
+    age: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [8],
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
       },
     },
   },
   {
-   
     sequelize,
     timestamps: false,
     freezeTableName: true,

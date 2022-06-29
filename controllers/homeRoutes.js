@@ -1,12 +1,15 @@
 const router = require('express').Router();
-const { PlayDate, Owner, Pet } = require("../../models");
+
+const { PlayDate, User, Pet } = require("../models");
+
 const withAuth = require('../utils/auth');
+const fileUpload = require('express-fileupload');
 
 // Homepage route
 router.get('/', async (req, res) => {
     try {
       const playDateData = await PlayDate.findAll({
-        include: [{model: Owner},{model: Pet}],
+        include: [{model: User},{model: Pet}],
       });
       const playDates = playDateData.map((playDate) => playDate.get({ plain: true }));
       res.render('homepage', { 
@@ -22,10 +25,10 @@ router.get('/', async (req, res) => {
 router.get('/event/:id', withAuth, async (req, res) => {
     try {
       const playDateData = await PlayDate.findByPk(req.params.id, {
-        include: [{model: Pet},{model: Owner}],
+        include: [{model: Pet},{model: User}],
       });
       const playDate = playDateData.get({ plain: true });
-      res.render('event', {
+      res.render('event-details', {
         ...playDate,
         logged_in: req.session.logged_in
       });
@@ -37,13 +40,14 @@ router.get('/event/:id', withAuth, async (req, res) => {
 // route to profile
 router.get('/profile', withAuth, async (req, res) => {
     try {
-      const userData = await Owner.findByPk(req.session.user_id, {
+      const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Pets},{model: PlayDate}],
+        include: [{ model: Pet},{model: PlayDate}],
       });
-      const owner = userData.get({ plain: true });
+      const user = userData.get({ plain: true });
+      console.log(user);
       res.render('profile', {
-        ...owner,
+        ...user,
         logged_in: true
       });
     } catch (err) {
@@ -52,8 +56,13 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 // route for new event
-router.get('/addnew', (req, res) => { 
-    res.render("addnew");
+router.get('/addevent', (req, res) => { 
+    res.render("add-event");
+});
+
+// route for new pet
+router.get('/addpet', (req, res) => { 
+    res.render("add-pet");
 });
 
 // route to login
@@ -64,3 +73,5 @@ router.get('/login', (req, res) => {
     }
     res.render("login");
 });
+
+module.exports = router;

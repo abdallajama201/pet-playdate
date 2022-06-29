@@ -2,13 +2,13 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Owner extends Model {
+class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
       }
 }
 
-Owner.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,27 +16,19 @@ Owner.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    user_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    email: {
       type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
       allowNull: false,
     },
-    owner_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
       },
     },
   },
@@ -55,8 +47,8 @@ Owner.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'owner',
+    modelName: 'user',
   }
 );
 
-module.exports = Owner;
+module.exports = User;

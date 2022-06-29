@@ -12,32 +12,31 @@ PlayDate.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
+    date: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+    location: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    owner_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
     },
+    // pet_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'pet',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
-    
     sequelize,
     timestamps: false,
     freezeTableName: true,

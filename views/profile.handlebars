@@ -1,0 +1,36 @@
+<!-- Cards across for each pet owned -->
+<div class="text-center rounded m-5">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top rounded-1" src="{{Pet.Image}}" alt="{{Pet.Name}}">
+    <div class="card-body">
+      <h5 class="card-title">{{Pet.Name}}</h5>
+      <p class="card-text">{{Pet.Age}} <br> {{Pet.Breed}} <br> {{Pet.Species}}
+      </p>
+      <a href="#" class="btn btn-primary">Remove</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Large area for pet owner details -->
+<div class="jumbotron border-1 border-dark rounded  p-2 m-5" style="background-color: #D3CEDF;">
+  <h1 class="display-6">Hello, {{User.Name}}</h1>
+  <p class="lead"><input class="rounded" type="text" id="name" name="name" value="{{User.Name}}"></p>
+  <p><input class="rounded" type="text" id="email" name="email" value="{{User.email}}"></p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Update Profile</a>
+  </p>
+</div>
+
+
+
+<!-- list of events created by owner // Click to see attendees -->
+<div class="container border-1 text-center border-dark rounded p-2 m-5" style="background-color: #9CB4CC;">
+  <div class="row">
+    <div class="col">Attending</div>
+    <div class="col">Hosting</div>
+    <div class="w-100"></div>
+    <div class="col">{{Event.Name}}</div>
+    <div class="col">{{Event.Name}}</div>
+  </div>
+</div>

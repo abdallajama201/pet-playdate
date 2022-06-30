@@ -8,7 +8,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
       const playDateData = await PlayDate.findAll({
-        include: [{model: User},{model: Pet}],
+        include: [{model: User, include: {model: Pet}}],
       });
       const playDates = playDateData.map((playDate) => playDate.get({ plain: true }));
       res.render('homepage', { 
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 router.get('/event/:id', withAuth, async (req, res) => {
     try {
       const playDateData = await PlayDate.findByPk(req.params.id, {
-        include: [{model: Pet},{model: User}],
+        include: [{model: User, include: {model: Pet}}],
       });
       const playDate = playDateData.get({ plain: true });
       res.render('event-details', {
@@ -56,12 +56,12 @@ router.get('/profile', withAuth, async (req, res) => {
 
 // route for new event
 router.get('/addevent', (req, res) => { 
-    res.render("add-event");
+    res.render("add-event",{logged_in: req.session.logged_in});
 });
 
 // route for new pet
 router.get('/addpet', (req, res) => { 
-    res.render("add-pet");
+    res.render("add-pet",{logged_in: req.session.logged_in});
 });
 
 // route to login

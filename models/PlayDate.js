@@ -15,7 +15,10 @@ PlayDate.init(
     date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+    },
+    time: {
+      type: DataTypes.TIME,
+      allowNull: false,
     },
     location: {
       type: DataTypes.STRING,

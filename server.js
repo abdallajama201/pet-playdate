@@ -32,12 +32,16 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
+//grab data from froms
+app.use(express.urlencoded({ extended: false }));
+//valuse from form come in as json
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/auth', require('./controllers/api/auth'))
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

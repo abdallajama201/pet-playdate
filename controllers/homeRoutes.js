@@ -36,7 +36,7 @@ router.get('/event/:id', withAuth, async (req, res) => {
     }
 });
 
-// route to profile
+// route to profile 
 router.get('/profile', withAuth, async (req, res) => {
     try {
       const userData = await User.findByPk(req.session.user_id, {

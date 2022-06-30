@@ -1,4 +1,5 @@
-<div class="card w-50 mx-auto m-5 p-2 text-center" style="background-color: #F2D7D9;">
+<div class="card w-50 mx-auto m-5 p-2 text-center" style="background-color:
+    #F2D7D9;">
     <h2>Add Pet</h2>
     <div class="card-body">
         <form class="form new-blog-form p-2">
@@ -6,18 +7,24 @@
                 <tr>
                     <td colspan="2" align="center">
                         {{!-- Uploader Form --}}
-
-                        <form action="/" method="POST" encType="multipart/form-data">
-                            <div class="p-3 m-2 rounded-3" style="background-color: #D3CEDF;">
+                        <div class="p-3 m-2 rounded-3" style="background-color:
+                            #D3CEDF;">
+                             <form ref='uploadForm' id='uploadForm' action='/'
+                                method='post' encType="multipart/form-data">
                                 {{#if this.pet_image}}
-                                <img class="rounded-3" src="{{this.pet_image}}" loading="lazy" alt="Pet Image">
+                                <img class="rounded-3" src="{{this.pet_image}}"
+                                    loading="lazy" alt="Pet Image">
                                 {{else}}
-                                <img class="rounded-3" src="./assets/images/default.png" loading="lazy" alt="Pet Image">
+                                <img class="rounded-3"
+                                    src="./assets/images/default.png"
+                                    loading="lazy" alt="Pet Image">
                                 {{/if}}
-                                <input type="file" class="btn btn-primary" name="sampleFile" accept="image/*" /><br>
-                                <input type="submit" class="btn btn-primary" value="Add Image">
-                            </div>
-                        </form>
+                                <input type="file" class="btn btn-primary"
+                                    name="sampleFile" accept="image/*" />
+                                <input type='submit' class="btn btn-primary"
+                                    value="Add Image" />
+                            </form>
+                        </div>
                         {{!-- Uploader Form End --}}
                     </td>
                 </tr>
@@ -25,25 +32,30 @@
                     <td colspan="2">
 
                         <!-- Assign to owner -->
-                        <input type="hidden" id="UserName" name="UserName" value="{{User.Name}}">
+                        <input type="hidden" id="UserName" name="UserName"
+                            value="{{User.Name}}">
                     </td>
 
                 </tr>
                 <tr>
                     <td><label for="PetName">Pet Name</label></td>
-                    <td><input class="form-input" type="text" id="PetName" name="PetName" /></td>
+                    <td><input class="form-input" type="text" id="PetName"
+                            name="PetName" /></td>
                 </tr>
 
                 <tr>
                     <td><label for="PetBreed">Breed:</label></td>
-                    <td><input class="form-input" type="text" id="PetBreed" name="PetBreed" /></td>
+                    <td><input class="form-input" type="text" id="PetBreed"
+                            name="PetBreed" /></td>
                 </tr>
                 <tr>
                     <td><label for="PetAge">Age:</label></td>
-                    <td><input class="form-input" type="text" id="PetAge" name="PetAge" /></td>
+                    <td><input class="form-input" type="text" id="PetAge"
+                            name="PetAge" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center"><button type="submit" class="btn btn-primary">Add Pet to
+                    <td colspan="2" align="center"><button type="submit"
+                            class="btn btn-primary">Add Pet to
                             Profile</button></td>
                 </tr>
             </table>

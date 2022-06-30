@@ -1,11 +1,11 @@
 <!-- Cards across for each pet owned -->
 
-<div class="text-center rounded m-5">
-  {{#each pet}}<div class="card" style="width: 18rem;">
-    <img class="card-img-top rounded-1" src="{{pet.image}}" alt="{{pet.pet_name}}">
+<div class="text-center rounded m-5 d-flex">
+  {{#each pets as |pet|}}<div class="card m-1 text-center" style="width: 18rem;">
+    <img class="card-img-top rounded-1 " src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
-      <h5 class="card-title">{{pet.pet_ame}}</h5>
-      <p class="card-text">{{pet.age}} <br> {{pet.breed}}
+      <h5 class="card-title">{{pet.pet_name}}</h5>
+      <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}
       </p>
       <a href="#" class="btn btn-primary">Remove</a>
     </div>
@@ -15,9 +15,9 @@
 
 <!-- Large area for pet owner details -->
 <div class="jumbotron border-1 border-dark rounded  p-2 m-5" style="background-color: #D3CEDF;">
-  <h1 class="display-6">Hello, {{user.user_name}}</h1>
-  <p class="lead"><input class="rounded" type="text" id="name" name="name" value="{{user.user_name}}"></p>
-  <p><input class="rounded" type="text" id="email" name="email" value="{{user.email}}"></p>
+  <h1 class="display-6">Hello, {{this.user_name}}</h1>
+  <p class="lead"><input class="rounded" type="text" id="name" name="name" value="{{this.user_name}}"></p>
+  <p><input class="rounded" type="text" id="email" name="email" value="{{this.email}}"></p>
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="#" role="button">Update Profile</a>
   </p>

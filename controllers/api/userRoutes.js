@@ -74,8 +74,6 @@ router.put('/:id', withAuth ,(req, res) => {
     .catch((err) => res.json(err));
 });
 
-const authController = require('../auth');
-router.post('/signup/', authController.register);
 
 module.exports = router;
   

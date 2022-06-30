@@ -22,6 +22,7 @@ Pet.init(
     image: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue:'/images/default.png',
     },
     age: {
       type: DataTypes.INTEGER,

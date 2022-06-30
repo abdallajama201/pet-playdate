@@ -18,7 +18,7 @@
     <div class="">
         <header class="">
         <nav class="navbar navbar-expand-lg navbar-light p-3" style="background-color: #F2D7D9;">
-            <a class="navbar-brand" style="font-family:Ranchers" ;"href="#" >Pet Playdate</a>
+            <a class="navbar-brand mainTitle"  href="#" ><h1>Pet Playdate</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,15 +29,21 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home</a>
                     </li>
+                    {{#if logged_in}}
+                     <li class="nav-item">
+                        <a class="nav-link" href="/addevent">Create Playdate</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {{/if}}
                 </ul>
             </div>
         </nav>

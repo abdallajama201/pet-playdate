@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/auth', require('./controllers/api/auth'))
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

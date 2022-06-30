@@ -139,6 +139,7 @@ sup {
  * Remove the border on images inside links in IE 10.
  */
 img {
+  width: 0px;
   border-style: none;
 }
 
@@ -1612,7 +1613,10 @@ form [type='radio'] {
     align-content: center;
   }
 }
-
+.mainTitle {
+  font-family: Ranchers, "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande";
+  font-size: 20px
+}
 /* col-xl */
 @media screen and (min-width: 1200px) {
   .col-xl-1 {

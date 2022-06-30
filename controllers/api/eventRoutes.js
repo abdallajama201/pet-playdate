@@ -49,12 +49,10 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
       const playDateData = await PlayDate.findByPk(req.params.id);
-
       const user = await User.findByPk(req.session.user_id);
-      await playDateData.addPet(pet);
-
-      // console.log(playDates);
-      res.status(200).json("ll");
+      await playDateData.addUser(user);
+      console.log(user);
+      res.status(200).json(playDateData);
     } catch (err) {
       res.status(500).json(err);
     }

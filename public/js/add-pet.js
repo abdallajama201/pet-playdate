@@ -24,5 +24,5 @@ const addPet = async (event) => {
 
 
 document
-    .querySelector('#add-pet')
-    .addEventListener('click', addPet);
+    .querySelector('#addPet')
+    .addEventListener('submit', addPet);

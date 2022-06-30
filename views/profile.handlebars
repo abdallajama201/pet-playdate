@@ -1,17 +1,17 @@
 <!-- Cards across for each pet owned -->
 
-<div class="text-center rounded m-5 d-flex">
-  {{#each pets as |pet|}}<div class="card m-1 text-center" style="width: 18rem;">
+<div class="text-center rounded m-5 d-flex flex-wrap justify-content-center">
+  {{#each pets as |pet|}}<div class="card m-1 text-center " style="width: 15rem;">
     <img class="card-img-top rounded-1 " src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
       <h5 class="card-title">{{pet.pet_name}}</h5>
       <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}
       </p>
-      <a href="#" class="btn btn-primary">Remove</a>
+      <a href="/delete/{{pet.id}}" class="btn btn-primary">Remove</a>
     </div>
-  </div>{{/each}}<div class="card m-1 text-center" style="width: 18rem;">
+  </div>{{/each}}<div class="card m-1 text-center " style="width: 15rem;">
     <img class="card-img-top rounded-1 " src="/images/default.png" alt="Add Pet">
-    <div class="card-body">
+    <div class="card-body align-self-stretch">
       <h5 class="card-title">Add Pet</h5>
       <p class="card-text">to Profile
       </p>
@@ -41,5 +41,5 @@
     <div class="w-100"></div>
     <div class="col">{{Event.Name}}</div>
     <div class="col">{{Event.Name}}</div>
-  </div>
-</div>
+
+    <script src="/js/add-pet.js"></script>

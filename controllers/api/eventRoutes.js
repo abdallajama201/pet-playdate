@@ -6,6 +6,7 @@ router.post('/', async (req, res) => {
     try {
       const newPlayDate = await PlayDate.create({
         date: req.body.date,
+        time: req.body.time,
         location: req.body.location,
         user_id: req.session.user_id,
       });
@@ -15,7 +16,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
       const PlayDateData = await PlayDate.destroy({
         where: {

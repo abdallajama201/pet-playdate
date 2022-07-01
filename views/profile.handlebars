@@ -2,7 +2,7 @@
 
 <div class="text-center rounded m-5 d-flex flex-wrap justify-content-center">
   {{#each pets as |pet|}}<div class="card m-1 text-center " style="width: 15rem;">
-    <img class="card-img-top rounded-1 " src="{{pet.image}}" alt="{{pet.pet_name}}">
+    <img class="card-img-top rounded-1 profileImage" src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
       <h5 class="card-title">{{pet.pet_name}}</h5>
       <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}

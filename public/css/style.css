@@ -30,7 +30,7 @@ h1{
 font-family: Sarpanch;
 }
 
-img{
+.profileImage{
   max-width: 150px;
     margin-left: auto;
       margin-right: auto;
@@ -39,4 +39,9 @@ img{
 .mainTitle{
 font-family:Ranchers, "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande";
 font-size:20px
+}
+
+.myname{
+height:auto;
+background-repeat: no-repeat;
 }

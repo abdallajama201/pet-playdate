@@ -2,11 +2,11 @@
 <div id="event_container" class="d-flex flex-wrap m-5 p-2 ">
   {{#each playdates as |playdate| }}
   <div class="card rounded text-center" style="width: 18rem;">
-    <img class="card-img-top" src="{{Pet.IMAGE}}" alt="{{Pet.Name}}">
+    <img class="card-img-top" src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
-      <h5 class="card-title">{{Pet.Name}}</h5>
+      <h5 class="card-title">{{pet.pet_name}}</h5>
       <p class="card-text">
-        {{Pet.Age}} <br> {{Pet.Breed}} <br> {{Pet.Species}}
+        {{pet.Age}} <br> {{pet.breed}}
       </p>
       <a href="{{Event:ID}}" class="btn btn-primary">View Details</a>
     </div>

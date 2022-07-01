@@ -54,15 +54,29 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
-// route for new event
-router.get('/addevent', (req, res) => { 
-    res.render("add-event",{logged_in: req.session.logged_in});
+router.get('/addevent', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Pet }, { model: PlayDate }],
+    });
+    const user = userData.get({ plain: true });
+    console.log(user);
+    res.render('add-event', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+
 // route for new pet
-router.get('/addpet', (req, res) => { 
+router.get('/addpet', withAuth, (req, res) => { 
     res.render("add-pet",{logged_in: req.session.logged_in});
 });
+
 
 // route to login
 router.get('/login', (req, res) => { 

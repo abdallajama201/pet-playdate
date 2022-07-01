@@ -1,8 +1,8 @@
 <div class="card mb-3 w-50 mx-auto m-5 p-2">
-    <img class="card-img-top" src="..." alt="{{Pet.Name}}">
+    <img class="card-img-top" src="{{pet.image}}" alt="{{Pet.pet_name}}">
     <div class="card-body">
-        <h5 class="card-title">{{Pet.Name}}</h5>
-        <p class="card-text">{{Pet.Age}} <br> {{Pet.Breed}} <br> {{Pet.Species}}</p>
+        <h5 class="card-title">{{pet.pet_name}}</h5>
+        <p class="card-text">{{pet.age}} <br> {{pet.breed}}</p>
         <p class="card-text"><small class="text-muted">{{date.added}}</small></p>
         <!-- Conditional Logic Attending /Unattend  -->
         <a href="#" class="btn btn-primary">Attending</a>

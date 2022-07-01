@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         include: [{model: User, include: {model: Pet}}],
       });
       const playDates = playDateData.map((playDate) => playDate.get({ plain: true }));
+      console.log(playDates);
       res.render('homepage', { 
         playDates,
         logged_in: req.session.logged_in 

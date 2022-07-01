@@ -1,6 +1,5 @@
 const addPet = async (event) => {
     event.preventDefault();
-
     const pet_name = document.querySelector('#PetName').value.trim();
     const breed = document.querySelector('#PetBreed').value.trim();
     const age = document.querySelector('#PetAge').value.trim();
@@ -13,16 +12,14 @@ const addPet = async (event) => {
                 'Content-Type': 'application/json',
             },
         });
-
         if (response.ok) {
             document.location.replace('/profile');
         } else {
-            alert('Failed to create project');
+            alert('Failed to add pet');
         }
     }
 };
 
-
 document
     .querySelector('#addPet')
-    .addEventListener('submit', addPet);
+    .addEventListener('click', addPet);

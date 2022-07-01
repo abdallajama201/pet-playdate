@@ -1,6 +1,5 @@
-<!-- Loop over each object in the projects array -->
+  {{#each playDates as |playdate| }}
 <div id="event_container" class="d-flex flex-wrap m-5 p-2 ">
-  {{#each playdates as |playdate| }}
   <div class="card rounded text-center" style="width: 18rem;">
     <img class="card-img-top" src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
@@ -12,5 +11,13 @@
     </div>
   </div>
 
-  {{/each}}
 </div>
+{{/each}}
+{{#each playDates as |playdate| }}
+<div class="card">
+  <h5><div class="card-header">Event on {{playdate.date}} at {{playdate.location}}</div></h5>
+  <div class="card-body">
+    <a href="/event/{{playdate.id}}" class="btn btn-primary mx-auto">View Details</a>
+  </div>
+</div>
+{{/each}}

@@ -5,11 +5,12 @@
     <img class="card-img-top rounded-1 profileImage" src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
       <h5 class="card-title">{{pet.pet_name}}</h5>
-      <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}
-      </p>
-      <a href="/delete/{{pet.id}}" class="btn btn-primary">Remove</a>
+      <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}</p>
+      <a class="btn btn-primary remove-btn">Remove</a>
     </div>
-  </div>{{/each}}<div class="card m-1 text-center " style="width: 15rem;">
+  </div>{{/each}}
+  
+  <div class="card m-1 text-center " style="width: 15rem;">
     <img class="card-img-top rounded-1 " src="/images/default.png" alt="Add Pet">
     <div class="card-body align-self-stretch">
       <h5 class="card-title">Add Pet</h5>
@@ -27,7 +28,7 @@
   <p class="lead"><input class="rounded" type="text" id="name" name="name" value="{{this.user_name}}"></p>
   <p><input class="rounded" type="text" id="email" name="email" value="{{this.email}}"></p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Update Profile</a>
+    <a class="btn btn-primary btn-lg" id="update-info" role="button">Update Profile</a>
   </p>
 </div>
 
@@ -42,4 +43,5 @@
     <div class="col">{{Event.Name}}</div>
     <div class="col">{{Event.Name}}</div>
 
-    <script src="/js/add-pet.js"></script>
+    <script src="/js/removePet.js"></script>
+    <script src="/js/updateUser.js"></script>

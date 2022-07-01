@@ -2,8 +2,8 @@ const User = require('./User');
 const Pet = require('./Pet');
 const PlayDate = require('./PlayDate');
 
-PlayDate.belongsToMany(User, { through: 'playdate_users' });
-User.belongsToMany(PlayDate, { through: 'playdate_users' });
+PlayDate.belongsToMany(Pet, { through: 'playdate_pets' });
+Pet.belongsToMany(PlayDate, { through: 'playdate_pets' });
 
 Pet.belongsTo(User, {
   foreignKey: 'user_id'

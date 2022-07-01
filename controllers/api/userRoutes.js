@@ -56,7 +56,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.put('/:id', withAuth ,(req, res) => {
+router.put('/', withAuth ,(req, res) => {
   User.update(
     {
       user_name: req.body.user_name,
@@ -64,7 +64,7 @@ router.put('/:id', withAuth ,(req, res) => {
     },
     {
       where: {
-        id: req.params.id,
+        id: req.session.user_id,
       },
     }
   )

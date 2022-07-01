@@ -14,15 +14,15 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-router.delete('/delete/:id', withAuth, async (req, res) => {
+router.delete('/', withAuth, async (req, res) => {
     try {
       const petData = await Pet.destroy({
         where: {
-          id: req.params.id,
+          pet_name: req.body.pet_name,
         },
       });
       if (!petData) {
-        res.status(404).json({ message: 'No pet found with this id!' });
+        res.status(404).json({ message: 'No pet found with this name!' });
         return;
       }
       res.status(200).json(petData);

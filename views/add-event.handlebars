@@ -1,11 +1,12 @@
 <div class="card w-50 mx-auto m-5 p-2 text-center">
-   <img class="card-img-top" src="{{pet.image}}" alt="{{pet.pet_name}}">
+    <!-- Conditional Logic More Than One Pet -->
+    {{#each user.pets as |pet|}}
+   <img class="card-img-top mx-auto" style="width: 18rem; height: 18rem;" src="{{pet.image}}" alt="{{pet.pet_name}}">
     <div class="card-body">
-        <!-- Conditional Logic More Than One Pet -->
-        
-        <h5 class="card-title">{{pet.pet_name}}</h5>
-        <p class="card-text">Age: {{this.pet.age}} <br>Breed: {{pet.breed}} <br> Host:
-            {{this.user_name}}</p>
+    <h5 class="card-title">{{pet.pet_name}}</h5>
+    <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}</p>
+    {{/each}}
+    <p class="card-text">Host: {{user.user_name}}</p>
         <form class="form new-blog-form p-2" id="create_event">
             <div class="form-group p-2">
                 <label for="event_date">What day would you like to have the playdate?</label>

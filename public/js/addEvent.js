@@ -1,6 +1,5 @@
 const createEvent = async (event) => {
   event.preventDefault();
-  console.log("addEvent script")
   const date = document.querySelector('#event_date').value.trim();
   const time = document.querySelector('#event_time').value.trim();
   const location = document.querySelector('#event_location').value.trim();

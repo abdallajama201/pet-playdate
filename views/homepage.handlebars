@@ -1,4 +1,4 @@
-  {{#each playDates as |playdate| }}
+  {{!-- {{#each playDates as |playdate| }}
 <div id="event_container" class="d-flex flex-wrap m-5 p-2 ">
   <div class="card rounded text-center" style="width: 18rem;">
     <img class="card-img-top" src="{{pet.image}}" alt="{{pet.pet_name}}">
@@ -12,12 +12,15 @@
   </div>
 
 </div>
-{{/each}}
+{{/each}} --}}
 {{#each playDates as |playdate| }}
-<div class="card">
-  <h5><div class="card-header">Event on {{playdate.date}} at {{playdate.location}}</div></h5>
-  <div class="card-body">
-    <a href="/event/{{playdate.id}}" class="btn btn-primary mx-auto">View Details</a>
+<div class="card m-5">
+  <h5><div class="card-header bg-info text-dark text-center">Event on {{playdate.date}} at {{playdate.location}}</div></h5>
+  <div class="card-body row justify-content-center">
+    {{#each playdate.pets as |pet|}}
+      <img class="card-img-top rounded-1 profileImage border border-info" src="{{pet.image}}" alt="{{pet.pet_name}}">
+    {{/each}}
   </div>
+    <a href="/event/{{playdate.id}}" class="btn btn-primary bg-info text-dark mx-auto w-25 m-3">View Details</a>
 </div>
 {{/each}}

@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const {PlayDate, User} = require("../../models");
+const {PlayDate, User, Pet} = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
       const newPlayDate = await PlayDate.create({
         date: req.body.date,
@@ -10,17 +10,39 @@ router.post('/', async (req, res) => {
         location: req.body.location,
         user_id: req.session.user_id,
       });
+      const user = await User.findByPk(req.session.user_id, {
+        include:[{model: Pet}, {model: PlayDate}]
+      });
+      const playDate = user.playdates[user.playdates.length - 1]
+      for(let i = 0;i < user.pets.length; i++) {
+        await playDate.addPet(user.pets[i]);
+      }
       res.status(200).json(newPlayDate);
     } catch (err) {
       res.status(400).json(err);
     }
 });
 
-router.delete('/delete/:id', async (req, res) => {
+router.put('/', withAuth, async (req, res) => {
+    try {
+      const playDateData = await PlayDate.findByPk(req.body.id);
+      const user = await User.findByPk(req.session.user_id, {
+        include:[{model: Pet}]
+      });
+      for(let i = 0;i < user.pets.length; i++) {
+        await playDateData.addPet(user.pets[i]);
+      }
+      res.status(200).json(playDateData);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+});
+
+router.delete('/', withAuth, async (req, res) => {
     try {
       const PlayDateData = await PlayDate.destroy({
         where: {
-          id: req.params.id,
+          id: req.body.id,
         },
       });
       if (!PlayDateData) {
@@ -42,18 +64,6 @@ router.get('/:id', async (req, res) => {
       console.log(play);
       // console.log(playDates);
       res.status(200).json(play);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-});
-
-router.put('/:id', async (req, res) => {
-    try {
-      const playDateData = await PlayDate.findByPk(req.params.id);
-      const user = await User.findByPk(req.session.user_id);
-      await playDateData.addUser(user);
-      console.log(user);
-      res.status(200).json(playDateData);
     } catch (err) {
       res.status(500).json(err);
     }

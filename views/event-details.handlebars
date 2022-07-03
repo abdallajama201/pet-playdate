@@ -1,25 +1,30 @@
-<div class="card mb-3 w-50 mx-auto m-5 p-2">
-    <img class="card-img-top" src="{{pet.image}}" alt="{{Pet.pet_name}}">
+{{!-- event info  --}}
+<div class="card text-center mx-auto w-75 my-5">
+    <div class="card-header"><h3>This Event is Hosted By: {{playDate.user.user_name}}</h3></div>
     <div class="card-body">
-        <h5 class="card-title">{{pet.pet_name}}</h5>
-        <p class="card-text">{{pet.age}} <br> {{pet.breed}}</p>
-        <p class="card-text"><small class="text-muted">{{date.added}}</small></p>
-        <!-- Conditional Logic Attending /Unattend  -->
-        <a href="#" class="btn btn-primary">Attending</a>
+        <h5 class="card-title">The event will be held at: {{playDate.location}}</h5>
+        <h5 class="card-title">on {{playDate.date}} at {{playDate.time}}</h5>
     </div>
+</div>
+
+{{!-- join button --}}
+<div class="row justify-content-center">
+    <button type="button" id="join-event" class="btn btn-info text-white btn-lg btn-block w-75 mx-2">Click to join the event</button>
 </div>
 
 <!-- Attendees List -->
-<div class="card mb-3 w-50 mx-auto m-5 p-2">
-    <div class="rounded p-2" style="background-color: #748DA6;">Attendees list</div>
-
-    <div class="container p-2">
-        <div class="row">
-            <div class="col">Name</div>
-            <div class="col">Delete</div>
-            <div class="w-100"></div>
-            <div class="col">Column</div>
-            <div class="col">Column</div>
+<div class="card-header py-5 my-5 w-75 mx-auto text-center" style="background-color: #748DA6;">Attendees list</div>
+<div class="row justify-content-center">
+    {{#each playDate.pets as |pet|}}
+    <div class="card m-3 w-25">
+        <img class="card-img-top" src={{pet.image}} alt="Card image cap">
+        <h5 class="card-header text-center">{{pet.pet_name}}</h5>
+        <div class="card-body">
+            <p class="card-text">Breed: {{pet.breed}}</p>
+            <p class="card-text">Age: {{pet.age}}</p>
+            <p class="card-text">Owner: {{pet.user.user_name}}</p>
         </div>
     </div>
+    {{/each}}
 </div>
+<script src="/js/joinEvent.js"></script>

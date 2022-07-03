@@ -6,9 +6,10 @@
     <div class="card-body">
       <h5 class="card-title">{{pet.pet_name}}</h5>
       <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}</p>
-      <a class="btn btn-primary remove-btn">Remove</a>
+      <a class="btn btn-info remove-btn">Remove</a>
     </div>
-  </div>{{/each}}
+  </div>
+  {{/each}}
   
   <div class="card m-1 text-center " style="width: 15rem;">
     <img class="card-img-top rounded-1 " src="/images/default.png" alt="Add Pet">
@@ -16,7 +17,7 @@
       <h5 class="card-title">Add Pet</h5>
       <p class="card-text">to Profile
       </p>
-      <a href="/addpet" class="btn btn-primary">Add Pet</a>
+      <a href="/addpet" class="btn btn-info">Add Pet</a>
     </div>
   </div>
 </div>
@@ -28,20 +29,38 @@
   <p class="lead"><input class="rounded" type="text" id="name" name="name" value="{{this.user_name}}"></p>
   <p><input class="rounded" type="text" id="email" name="email" value="{{this.email}}"></p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" id="update-info" role="button">Update Profile</a>
+    <a class="btn btn-info btn-lg" id="update-info" role="button">Update Profile</a>
   </p>
 </div>
 
 
 
 <!-- list of events created by owner // Click to see attendees -->
-<div class="container border-1 text-center border-dark rounded p-2 m-5" style="background-color: #9CB4CC;">
+<div class="container">
   <div class="row">
-    <div class="col">Attending</div>
-    <div class="col">Hosting</div>
+    <div class="col">
+      <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">Attending</h6>
+    </div>
+    <div class="col">
+      <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">Hosting</h6>
+        {{#each playdates as |play|}}
+        <div class="card border-info mx-auto" style="max-width: 18rem;">
+          <div class="card-body text-body">
+            <h5 class="card-title">Event location: {{play.location}}</h5>
+            <h5 class="card-title">Event date: {{play.date}}</h5>
+            <h5 class="card-title">Event time: {{play.time}}</h5>
+          </div>
+          <a href="/event/{{play.id}}"><div class="card-footer bg-transparent border-info text-primary text-center">View Event</div></a>
+          <a class="del-event" href=""><p hidden>{{play.id}}</p><div class="card-footer bg-transparent border-info text-danger text-center">Delete Event</div></a>
+        </div>
+        {{/each}}
+    </div>
     <div class="w-100"></div>
     <div class="col">{{Event.Name}}</div>
     <div class="col">{{Event.Name}}</div>
+  </div>
+</div>
 
     <script src="/js/removePet.js"></script>
     <script src="/js/updateUser.js"></script>
+    <script src="/js/deleteEvent.js"></script>

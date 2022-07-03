@@ -40,18 +40,28 @@
   <div class="row">
     <div class="col">
       <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">Attending</h6>
+        {{#each play as |playdates|}}
+        <div class="card border-success mx-auto" style="max-width: 18rem;">
+          <div class="card-body text-body">
+            <h5 class="card-title">Event location: {{playdates.location}}</h5>
+            <h5 class="card-title">Event date: {{playdates.date}}</h5>
+            <h5 class="card-title">Event time: {{playdates.time}}</h5>
+          </div>
+          <a href="/event/{{playdates.id}}"><div class="card-footer bg-transparent text-primary text-center">View Event</div></a>
+        </div>
+        {{/each}}
     </div>
     <div class="col">
       <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">Hosting</h6>
         {{#each playdates as |play|}}
-        <div class="card border-info mx-auto" style="max-width: 18rem;">
+        <div class="card border-success mx-auto" style="max-width: 18rem;">
           <div class="card-body text-body">
             <h5 class="card-title">Event location: {{play.location}}</h5>
             <h5 class="card-title">Event date: {{play.date}}</h5>
             <h5 class="card-title">Event time: {{play.time}}</h5>
           </div>
-          <a href="/event/{{play.id}}"><div class="card-footer bg-transparent border-info text-primary text-center">View Event</div></a>
-          <a class="del-event" href=""><p hidden>{{play.id}}</p><div class="card-footer bg-transparent border-info text-danger text-center">Delete Event</div></a>
+          <a href="/event/{{play.id}}"><div class="card-footer bg-transparent text-primary text-center">View Event</div></a>
+          <a class="del-event" href=""><p hidden>{{play.id}}</p><div class="card-footer bg-transparent text-danger text-center">Delete Event</div></a>
         </div>
         {{/each}}
     </div>

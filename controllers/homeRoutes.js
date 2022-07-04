@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
         include: [{model: Pet}],
       });
       const playDates = playDateData.map((playDate) => playDate.get({ plain: true }));
-      console.log(playDates);
       res.render('homepage', { 
         playDates,
         logged_in: req.session.logged_in 
@@ -29,7 +28,6 @@ router.get('/event/:id', withAuth, async (req, res) => {
           { model: Pet, include: [{ model: User }] }],
       });
       const playDate = playDateData.get({ plain: true });
-      console.log(playDate);
       res.render('event-details', {
         playDate,
         logged_in: req.session.logged_in
@@ -47,9 +45,16 @@ router.get('/profile', withAuth, async (req, res) => {
         include: [{ model: Pet},{model: PlayDate}],
       });
       const user = userData.get({ plain: true });
-      console.log(user);
+      let play;
+      if(user.pets[0]) {
+        const playDates = await PlayDate.findAll({
+          include: [{model: Pet, where: {id: user.pets[0].id}}]
+        });
+        play = playDates.map((playDate) => playDate.get({ plain: true }));
+      }
       res.render('profile', {
         ...user,
+        play,
         logged_in: true
       });
     } catch (err) {

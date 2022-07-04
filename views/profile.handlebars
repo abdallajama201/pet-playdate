@@ -1,45 +1,26 @@
-<!-- Cards across for each pet owned -->
-
-<div class="text-center rounded m-5 d-flex flex-wrap justify-content-center">
-  {{#each pets as |pet|}}<div class="card m-1 text-center " style="width: 15rem;">
-    <img class="card-img-top rounded-1 profileImage" src="{{pet.image}}" alt="{{pet.pet_name}}">
-    <div class="card-body">
-      <h5 class="card-title">{{pet.pet_name}}</h5>
-      <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}</p>
-      <a class="btn btn-info remove-btn">Remove</a>
-    </div>
-  </div>
-  {{/each}}
-  
-  <div class="card m-1 text-center " style="width: 15rem;">
-    <img class="card-img-top rounded-1 " src="/images/default.png" alt="Add Pet">
-    <div class="card-body align-self-stretch">
-      <h5 class="card-title">Add Pet</h5>
-      <p class="card-text">to Profile
-      </p>
-      <a href="/addpet" class="btn btn-info">Add Pet</a>
-    </div>
-  </div>
-</div>
-
+<div class="jumbotron h-100">
+  <div class="row">
+    <div class="col-3 bg-light">
 
 <!-- Large area for pet owner details -->
-<div class="jumbotron border-1 border-dark rounded  p-2 m-5" style="background-color: #D3CEDF;">
+<div class="text-center justify-content-center h-100  p-2" >
   <h1 class="display-6">Hello, {{this.user_name}}</h1>
-  <p class="lead"><input class="rounded" type="text" id="name" name="name" value="{{this.user_name}}"></p>
-  <p><input class="rounded" type="text" id="email" name="email" value="{{this.email}}"></p>
+  <p class="lead"><input class="form-control p-1" type="text" id="name" name="name" value="{{this.user_name}}"></p>
+  <p><input class="form-control p-1" type="text" id="email" name="email" value="{{this.email}}"></p>
   <p class="lead">
     <a class="btn btn-info btn-lg" id="update-info" role="button">Update Profile</a>
   </p>
 </div>
 
+       </div>
+       <div class="col-6 d-flex flex-wrap">
 
 
 <!-- list of events created by owner // Click to see attendees -->
-<div class="container">
+<div class="container m-2">
   <div class="row">
-    <div class="col">
-      <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">Attending</h6>
+    <div class="col-6">
+      <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">I'm Attending</h6>
         {{#each play as |playdates|}}
         <div class="card border-success mx-auto" style="max-width: 18rem;">
           <div class="card-body text-body">
@@ -51,8 +32,8 @@
         </div>
         {{/each}}
     </div>
-    <div class="col">
-      <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">Hosting</h6>
+    <div class="col-6">
+      <h6 class="border-1 text-center border-dark rounded py-2" style="background-color: #9CB4CC;">I'm Hosting</h6>
         {{#each playdates as |play|}}
         <div class="card border-success mx-auto" style="max-width: 18rem;">
           <div class="card-body text-body">
@@ -70,6 +51,50 @@
     <div class="col">{{Event.Name}}</div>
   </div>
 </div>
+
+
+<!-- Cards across for each pet owned -->
+<div class=" text-center rounded m-5 d-flex flex-wrap justify-content-center">
+  {{#each pets as |pet|}}
+  <div class="card m-1 text-center align-self-start" style="width: 10rem;">
+    <img class="card-img-top img-rounded profileImage" src="{{pet.image}}" alt="{{pet.pet_name}}">
+    <div class="card-body">
+      <h5 class="card-title">{{pet.pet_name}}</h5>
+      <p class="card-text">Age: {{pet.age}} <br>Breed: {{pet.breed}}</p>
+      <a class="btn btn-info remove-btn">Remove</a>
+    </div>
+  </div>
+  {{/each}}
+  {{!-- Add New Pet Box --}}
+  <div class="card m-1 text-center align-self-start" style="width: 10rem;">
+    <img class="card-img-top  profileImage" src="/images/default.png" alt="Add Pet">
+    <div class="card-body align-self-stretch">
+      <h5 class="card-title">Create Pet</h5>
+      <p class="card-text">Add a<br>pet to profile
+      </p>
+      <a href="/addpet" class="btn btn-info">Add Pet</a>
+    </div>
+  </div>
+</div>
+
+
+
+       </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="/js/removePet.js"></script>
     <script src="/js/updateUser.js"></script>

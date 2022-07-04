@@ -3,11 +3,12 @@ const addPet = async (event) => {
     const pet_name = document.querySelector('#PetName').value.trim();
     const breed = document.querySelector('#PetBreed').value.trim();
     const age = document.querySelector('#PetAge').value.trim();
+    const image = document.querySelector('#PetImage').value.trim();
 
-    if (pet_name && breed && age) {
+    if (pet_name && breed && age && image) {
         const response = await fetch(`/api/pets`, {
             method: 'POST',
-            body: JSON.stringify({ pet_name, breed, age }),
+            body: JSON.stringify({ pet_name, breed, age, image }),
             headers: {
                 'Content-Type': 'application/json',
             },

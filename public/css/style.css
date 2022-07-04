@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poller+One&family=Ranchers&family=Slackey&display=swap');
-
+body {
+  background-image: url('/images/404.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom;
+}
 
 header, .blog:not(:last-child) {
   border-bottom: 1px solid #ccc;
@@ -27,21 +32,29 @@ header, .blog:not(:last-child) {
 }
 
 h1{
-font-family: Sarpanch;
+font-family: Ranchers, "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande";
+font-size:40px
 }
 
 .profileImage{
   max-width: 150px;
-    margin-left: auto;
-      margin-right: auto;
+  padding: 10px;
+  
+ 
+
+    margin: auto;
+      /* margin-right: auto; */
 }
 
 .mainTitle{
 font-family:Ranchers, "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande";
-font-size:20px
+
 }
 
 .myname{
 height:auto;
 background-repeat: no-repeat;
+}
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

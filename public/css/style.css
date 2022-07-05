@@ -7,6 +7,7 @@ body {
 }
 
 header, .blog:not(:last-child) {
+  /* position: fixed; */
   border-bottom: 1px solid #ccc;
 }
 
@@ -69,4 +70,12 @@ background-repeat: no-repeat;
 
 .selector-for-some-widget {
   box-sizing: content-box;
+}
+.spacingtop{
+  margin-top: 6vw !important; 
+}
+header{
+  z-index: 1;
+  /* margin-bottom: 5vw !important;
+  padding: 5vw !important; */
 }

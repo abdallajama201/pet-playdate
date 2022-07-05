@@ -1,10 +1,11 @@
 
-# Pet Play Date
+# Pet Playdate
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
 
 ## Table of Contents
 - [Description](#description)
+- [Developers](#developers)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Application](#application)
@@ -17,8 +18,13 @@
 
 
 ## Description
+- Welcome to pet playdate an events page for your pet to play with other pets.
 - Is your pet lonely? Do you wish that they would stop watching tv all day? Setup a pet playdate today!
 
+## Developers
+-https://github.com/abdallajama201
+-https://github.com/DLittlefield81/
+-https://github.com/Sadegh777
 
 ## Installation
 Follow these steps to install this project on your local machine.
@@ -35,7 +41,7 @@ Follow these steps to install this project on your local machine.
 - Developer mode: npm run dev
 
 ## Application
-- Link to Deployed Application: HEROKU LINK
+- Link to Deployed Application: https://pet-playdate.herokuapp.com/
 
 
 ## Images
@@ -62,4 +68,4 @@ Follow these steps to install this project on your local machine.
 
 
 ## Copyright
-- © Copyright 2022 Pet Play Date
+- © Copyright 2022 Pet Playdate

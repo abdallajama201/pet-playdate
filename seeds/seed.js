@@ -12,9 +12,10 @@ function createUser() {
 };
 
 function createEvent(id) {
+    const time = new Date();
     return {
         date: faker.date.future(),
-        time: "00:00:00",
+        time: time.toLocaleTimeString('en-IT', { hour12: false }),
         location: faker.address.city(),
         user_id: id
     }

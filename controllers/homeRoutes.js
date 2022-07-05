@@ -8,7 +8,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
       const playDateData = await PlayDate.findAll({
-        include: [{model: Pet}],
+        include: [{model: Pet}, {model: User}],
       });
       const playDates = playDateData.map((playDate) => playDate.get({ plain: true }));
       res.render('homepage', { 

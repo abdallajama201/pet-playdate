@@ -1,30 +1,56 @@
-{{!-- event info  --}}
-<div class="card text-center mx-auto w-75 my-5">
-    <div class="card-header"><h3>This Event is Hosted By: {{playDate.user.user_name}}</h3></div>
-    <div class="card-body">
-        <h5 class="card-title">The event will be held at: {{playDate.location}}</h5>
-        <h5 class="card-title">on {{playDate.date}} at {{playDate.time}}</h5>
-    </div>
-</div>
+<div class="jumbotron h-100 text-center">
+    <div class="row">
+        <div class="col-3 bg-light">
 
-{{!-- join button --}}
-<div class="row justify-content-center">
-    <button type="button" id="join-event" class="btn btn-info text-white btn-lg btn-block w-75 mx-2">Click to join the event</button>
-</div>
+            {{!-- Event Details Box --}}
+            <div class="card m-4">
+                <div class="card-header">
+                   <h3>{{playDate.location}}</h3> 
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Hosted By:
+                        {{playDate.user.user_name}}</h5>
+                    <p class="card-text">Date: {{playDate.date}}<br>Time:
+                        {{playDate.time}} </p>
+                    <a id="join-event" class="btn btn-primary">RSVP</a>
+                </div>
+            </div>
 
-<!-- Attendees List -->
-<div class="card-header py-5 my-5 w-75 mx-auto text-center" style="background-color: #748DA6;">Attendees list</div>
-<div class="row justify-content-center">
+        </div>
+        <div class="col d-flex flex-wrap">
+
+            <!-- Attendees List -->
+            <div class="center-text mx-auto">
+                <h1>Attendees list</h1>
+            </div>
+            
+           
+
+<div class="">
     {{#each playDate.pets as |pet|}}
-    <div class="card m-3 w-25">
-        <img class="card-img-top" src={{pet.image}} alt="Card image cap">
-        <h5 class="card-header text-center">{{pet.pet_name}}</h5>
-        <div class="card-body">
-            <p class="card-text">Breed: {{pet.breed}}</p>
-            <p class="card-text">Age: {{pet.age}}</p>
-            <p class="card-text">Owner: {{pet.user.user_name}}</p>
+                <div class="card rounded m-3 w-25" style="width: 15rem;">
+                    <img class="card-img-top" src={{pet.image}} alt="{{pet.pet_name}}">
+                    <h5 class="card-header text-center">{{pet.pet_name}}</h5>
+                    <div class="card-body">
+                        <p class="card-text">Breed: {{pet.breed}}</p>
+                        <p class="card-text">Age: {{pet.age}}</p>
+                        <p class="card-text">Owner: {{pet.user.user_name}}</p>
+                    </div>
+                </div>
+                {{/each}}
+</div>
+                
+
+
+
+
+
+
+            </div>
+
         </div>
     </div>
-    {{/each}}
 </div>
+
+
 <script src="/js/joinEvent.js"></script>

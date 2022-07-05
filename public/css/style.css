@@ -33,14 +33,20 @@ header, .blog:not(:last-child) {
 
 h1{
 font-family: Ranchers, "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande";
-font-size:40px
+font-size:40px;
+
+}
+li{
+  font-family: "Crafty Girls", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande";
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .profileImage{
   max-width: 150px;
   padding: 10px;
-  
- 
+  border-radius: 20px;
+
 
     margin: auto;
       /* margin-right: auto; */
@@ -56,5 +62,7 @@ height:auto;
 background-repeat: no-repeat;
 }
 .card{
+  border-radius: 10px;
+  border: 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 app.use(function (req, res) {
   res.status(404);
-  res.render('404');
+  res.render('404', {logged_in: req.session.logged_in});
 });
 
 sequelize.sync({ force: false }).then(() => {

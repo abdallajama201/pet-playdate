@@ -5,6 +5,7 @@
 
 ## Table of Contents
 - [Description](#description)
+- [Developers](#developers)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Application](#application)
@@ -18,6 +19,11 @@
 
 ## Description
 - Is your pet lonely? Do you wish that they would stop watching tv all day? Setup a pet playdate today!
+
+## Developers
+- https://github.com/abdallajama201
+- https://github.com/Sadegh777
+- https://github.com/DLittlefield81/
 
 
 ## Installation
@@ -39,7 +45,7 @@ Follow these steps to install this project on your local machine.
 
 
 ## Images
-- -![ECommerceBackEnd](./assets/images/pet-playdate.png)
+- -![ECommerceBackEnd](./public/images/pet-playdate.png)
 
 ## Tests
 - node run test

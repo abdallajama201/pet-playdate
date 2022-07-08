@@ -41,7 +41,7 @@ Follow these steps to install this project on your local machine.
 - Developer mode: npm run dev
 
 ## Application
-- Link to Deployed Application: HEROKU LINK
+- Link to Deployed Application: (https://pet-playdate-app.herokuapp.com/)
 
 
 ## Images
